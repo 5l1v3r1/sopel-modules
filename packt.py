@@ -22,5 +22,5 @@ def getPacktTitle():
 		title = title.replace("\\n","")
 		return title
 	else:
-			title = 'Could not get Title. The status code was : ' + page.status_code
+		title = 'Could not get Title. The status code was : ' + page.status_code
 	return title
