@@ -5,13 +5,12 @@ from fake_useragent import UserAgent
 
 @sopel.module.commands('packt')
 def packt(bot, trigger):
-    title = getPacktTitle()  
-    bot.say('Packt Free Book (daily)     https://www.packtpub.com/packt/offers/free-learning')
-    bot.say("Today's free book is: " + title)
+	title = getPacktTitle()  
+	bot.say('Packt Free Book (daily)     https://www.packtpub.com/packt/offers/free-learning')
+	bot.say("Today's free book is: " + title)
 
- def getPacktTitle():
+def getPacktTitle():
 	url = 'https://www.packtpub.com/packt/offers/free-learning'
-
 	ua = UserAgent()
 	header = {'User-Agent':str(ua.chrome)}
 	page = requests.get(url,headers = header)
@@ -23,6 +22,5 @@ def packt(bot, trigger):
 		title = title.replace("\\n","")
 		return title
 	else:
-        title = 'Could not get Title. The status code was : ' + page.status_code
+			title = 'Could not get Title. The status code was : ' + page.status_code
 	return title
-	
